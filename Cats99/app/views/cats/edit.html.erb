@@ -3,7 +3,7 @@
 
 <div class="container">
 
-  <form action="/cats" method="post">
+  <form action="<%=cat_url(@cat)%>" method="post">
     <input type="hidden" name="_method" value="patch">
     <input type="hidden"
       name="authenticity_token"
@@ -39,7 +39,7 @@
       <input id="name" type="date" name="cat[birth_date]" value="<%=@cat.birth_date%>">
       <br>
 
-      <input type="submit" value="Create a cat!">
+      <input type="submit" value="Edit a cat!">
 
   </form>
 
