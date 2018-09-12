@@ -1,0 +1,46 @@
+<h1>Edit the Cat!!</h1>
+
+
+<div class="container">
+
+  <form action="/cats" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+
+    <label for="name">Cat Name:</label>
+      <input id="name" type="text" name="cat[name]" value="<%=@cat.name%>">
+      <br>
+
+    <label for="name">Cat Color:</label>
+    <select name="cat[color]">
+      <option value="" selected disabled hidden><%= @cat.color %></option>
+      <% Cat::COLORS.each do |color| %>
+        <option value="<%= color %>"> <%= color %> </option>
+      <% end %>
+    </select>
+      <br>
+
+    <label for="name">Cat Sex:</label>
+    <br>
+    <label for="name">M</label>
+      <input id="name" type="radio" name="cat[sex]" value="M" <%='checked' if @cat.sex == 'm' %> >
+    <label for="name">F</label>
+      <input id="name" type="radio" name="cat[sex]" value="F" <%='checked' if @cat.sex == 'f' %>>
+      <br>
+
+    <label for="name">Cat Description:</label>
+      <textarea id="name" name="cat[description]" value="">
+    </textarea>
+      <br>
+
+    <label for="name">Cat Birth Date:</label>
+      <input id="name" type="date" name="cat[birth_date]" value="<%=@cat.birth_date%>">
+      <br>
+
+      <input type="submit" value="Create a cat!">
+
+  </form>
+
+</div>
